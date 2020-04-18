@@ -7,6 +7,7 @@ onready var label : = $Control/Label
 export (int) var resource_max = 100
 export (int) var curr_resource = 90
 export (int) var depletion_rate = 1
+export (bool) var dando_merda = false
 
 var game_manager
 var resource = GlobalResources.RESOURCES.BEER
@@ -20,6 +21,11 @@ func _ready():
 	game_manager = get_tree().get_nodes_in_group("Game Manager")[0]
 
 func _process(_delta):
+	if curr_resource < 50:
+		dando_merda = true
+	else:
+		dando_merda = false
+		
 	if is_hovering:
 		label.visible = true
 		outline.visible = true

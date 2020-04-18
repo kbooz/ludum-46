@@ -26,18 +26,43 @@ __meta__ = {
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
 margin_left = 24.0
 margin_top = 24.0
-margin_right = 56.0
-margin_bottom = 304.0
+margin_right = 315.0
+margin_bottom = 58.0
+value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResourceProp" parent="." instance=ExtResource( 2 )]
+[node name="ResourceProp" parent="." groups=[
+"props",
+] instance=ExtResource( 2 )]
 
 [node name="Outline" parent="ResourceProp" index="2"]
 position = Vector2( -7.99997, -1.52588e-05 )
 
 [node name="Sprite" parent="ResourceProp" index="3"]
+position = Vector2( -8, 0 )
+
+[node name="ResourceProp3" parent="." groups=[
+"props",
+] instance=ExtResource( 2 )]
+position = Vector2( 240.038, 723.815 )
+
+[node name="Outline" parent="ResourceProp3" index="2"]
+position = Vector2( -7.99997, -1.52588e-05 )
+
+[node name="Sprite" parent="ResourceProp3" index="3"]
+position = Vector2( -8, 0 )
+
+[node name="ResourceProp4" parent="." groups=[
+"props",
+] instance=ExtResource( 2 )]
+position = Vector2( 652.573, -117.122 )
+
+[node name="Outline" parent="ResourceProp4" index="2"]
+position = Vector2( -7.99997, -1.52588e-05 )
+
+[node name="Sprite" parent="ResourceProp4" index="3"]
 position = Vector2( -8, 0 )
 
 [node name="CursorTracker" type="Area2D" parent="."]
@@ -57,6 +82,15 @@ position = Vector2( 512, 308 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
+[node name="PartyometerTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]
+
 [editable path="ResourceProp"]
+
+[editable path="ResourceProp3"]
+
+[editable path="ResourceProp4"]
 
 [editable path="ResourceProp2"]
