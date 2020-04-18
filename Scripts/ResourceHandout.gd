@@ -16,22 +16,18 @@ var interactive : = true
 
 func _ready():
 	outline.visible = false
-	label.visible = false
 	game_manager = get_tree().get_nodes_in_group("Game Manager")[0]
 
 func _process(_delta):
 	if is_hovering:
-		label.visible = true
 		outline.visible = true
-		label.text = str(curr_resource) + " / " + str(resource_max)
 	else:
 		outline.visible = false
-		label.visible = false
 
 func _input(event):
 	if (event is InputEventMouseButton) and event.is_pressed():
 		if is_hovering and interactive:
-			game_manager.request_refill(self)
+			game_manager.request_delivery(self)
 
 func _on_ResourceProp_area_entered(area):
 	if area.name == "CursorTracker":
@@ -52,11 +48,5 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.name == "Player":
 		interactive = false
-	pass # Replace with function body.
-
-
-func _on_Timer_timeout():
-	if curr_resource >= 1:
-		curr_resource -= 1
 	pass # Replace with function body.
 
