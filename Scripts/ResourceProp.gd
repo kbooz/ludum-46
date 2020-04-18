@@ -7,7 +7,7 @@ onready var label : = $Control/Label
 export (int) var resource_max = 100
 export (int) var curr_resource = 90
 export (int) var depletion_rate = 1
-export (bool) var dando_merda = false
+export (bool) var has_issues = false
 
 var game_manager
 var resource = GlobalResources.RESOURCES.BEER
@@ -22,9 +22,11 @@ func _ready():
 
 func _process(_delta):
 	if curr_resource < 50:
-		dando_merda = true
+		$AlertBalloon.active = true
+		has_issues = true
 	else:
-		dando_merda = false
+		$AlertBalloon.active = false
+		has_issues = false
 		
 	if is_hovering:
 		label.visible = true

@@ -36,6 +36,8 @@ __meta__ = {
 [node name="ResourceProp" parent="." groups=[
 "props",
 ] instance=ExtResource( 2 )]
+position = Vector2( 859.184, 413.84 )
+curr_resource = 60
 
 [node name="Outline" parent="ResourceProp" index="2"]
 position = Vector2( -7.99997, -1.52588e-05 )
@@ -47,6 +49,7 @@ position = Vector2( -8, 0 )
 "props",
 ] instance=ExtResource( 2 )]
 position = Vector2( 240.038, 723.815 )
+curr_resource = 70
 
 [node name="Outline" parent="ResourceProp3" index="2"]
 position = Vector2( -7.99997, -1.52588e-05 )
@@ -58,6 +61,7 @@ position = Vector2( -8, 0 )
 "props",
 ] instance=ExtResource( 2 )]
 position = Vector2( 652.573, -117.122 )
+curr_resource = 60
 
 [node name="Outline" parent="ResourceProp4" index="2"]
 position = Vector2( -7.99997, -1.52588e-05 )

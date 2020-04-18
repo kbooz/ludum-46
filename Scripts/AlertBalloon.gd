@@ -8,6 +8,10 @@ extends Node2D
 onready var sprite = $Sprite
 
 var target_position = null
+var active = false
+
+func _ready():
+	hide()
 
 func set_balloon_position(bounds : Rect2):
 	if target_position == null:
@@ -34,7 +38,7 @@ func set_balloon_position(bounds : Rect2):
 			length = x_length / cos(angle) if cos(angle) !=0 else x_length
 		
 		sprite.global_position = polar2cartesian(length, displacement.angle()) + target_position
-		
+	
 	if bounds.has_point(global_position):
 		hide()
 	else:
@@ -50,5 +54,6 @@ func _physics_process(delta):
 	var top_left = -canvas.origin / canvas.get_scale()
 	var size = get_viewport_rect().size / canvas.get_scale()
 	
-	set_balloon_position(Rect2(top_left, size))
-	set_balloon_rotation()
+	if active:
+		set_balloon_position(Rect2(top_left, size))
+		set_balloon_rotation()

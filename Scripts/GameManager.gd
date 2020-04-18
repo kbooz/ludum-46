@@ -5,20 +5,22 @@ onready var partyometerTimer = $PartyometerTimer
 
 var player
 var props
-var merdas_acontecendo = 0
+var issues = 0
 
 func _ready():
 	player = get_tree().get_nodes_in_group("player")[0]
 	props = get_tree().get_nodes_in_group("props")
-	collect_resources()
 
 func _process(delta):
-	collect_resources()
+	var props_total_issues = check_props_issues()
+	issues = props_total_issues
 
-func collect_resources():
+func check_props_issues():
+	var total_issues = 0
 	if props:
 		for k in props:
-			print(k.curr_resource)
+			total_issues += int(k.has_issues)
+	return total_issues
 
 func request_refill(prop):
 	if prop.resource == player.resource:
@@ -35,8 +37,7 @@ func request_delivery(handout):
 		return
 	
 	player.resource = handout.resource
-	
 
 func _on_PartyometerTimer_timeout():
-	if merdas_acontecendo > 0:
+	if issues > 0:
 		partyometer.value -= 1
