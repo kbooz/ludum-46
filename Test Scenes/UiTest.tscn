@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Test Scenes/ResourceProp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/CursorTracker.gd" type="Script" id=3]
 [ext_resource path="res://Placeholder Art/warning_baloon.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/DummyPlayer.gd" type="Script" id=5]
+[ext_resource path="res://Test Scenes/ResourceHandout.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="Game" type="Node2D" groups=[
 "Game Manager",
@@ -44,16 +48,30 @@ __meta__ = {
 
 [node name="ResourceProp" parent="." instance=ExtResource( 2 )]
 
-[node name="Outline" parent="ResourceProp" index="1"]
+[node name="Outline" parent="ResourceProp" index="2"]
 position = Vector2( -7.99997, -1.52588e-05 )
 
-[node name="Sprite" parent="ResourceProp" index="2"]
+[node name="Sprite" parent="ResourceProp" index="3"]
 position = Vector2( -8, 0 )
 
 [node name="CursorTracker" type="Area2D" parent="."]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorTracker"]
+shape = SubResource( 1 )
+
+[node name="DummyPlayer" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 696, 408 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyPlayer"]
 shape = SubResource( 2 )
 
+[node name="ResourceProp2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 344, 224 )
+
 [editable path="ResourceProp"]
+
+[editable path="ResourceProp2"]
