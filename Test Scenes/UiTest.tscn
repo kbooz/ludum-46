@@ -6,8 +6,6 @@
 [ext_resource path="res://Test Scenes/PlayerMovement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Test Scenes/Resource Handouts/ResourceHandout.tscn" type="PackedScene" id=6]
 
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
 
