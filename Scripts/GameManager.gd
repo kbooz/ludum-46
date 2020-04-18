@@ -24,6 +24,14 @@ func check_props_issues():
 	return total_issues
 
 func request_refill(prop):
+	if prop.resource == GlobalResources.RESOURCES.MUSIC:
+		if player.resource == GlobalResources.RESOURCES.EMPTY:
+			print("Music Adjusted")
+			return
+		else:
+			print("Hands full")
+			return
+			
 	if prop.resource == player.resource:
 		player.resource = GlobalResources.RESOURCES.EMPTY
 		prop.curr_resource = prop.resource_max

@@ -8,7 +8,7 @@ export (int) var resource_max = 100
 export (int) var curr_resource = 90
 export (int) var depletion_rate = 1
 
-export (int, "empty", "beer", "food", "music", "cleaning") var resourceS
+export (int, "empty", "beer", "food", "music", "cleaning") var resource
 export (bool) var has_issues = false
 
 
