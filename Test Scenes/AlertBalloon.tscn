@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Placeholder Art/warning_baloon.png" type="Texture" id=1]
+[ext_resource path="res://assets-originals/png/warning-balloon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/AlertBalloon.gd" type="Script" id=2]
+[ext_resource path="res://assets-originals/png/beer-01.png" type="Texture" id=3]
 
 [node name="AlertBalloon" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 3.8147e-06, 0.813777 )
-scale = Vector2( 0.423836, 0.423836 )
+scale = Vector2( 0.13818, 0.13818 )
 texture = ExtResource( 1 )
 centered = false
-offset = Vector2( -400, -160 )
+offset = Vector2( -1022.42, -481.979 )
+
+[node name="Kind" type="Sprite" parent="Sprite"]
+position = Vector2( -586.191, 0 )
+scale = Vector2( 1.3741, 1.3741 )
+texture = ExtResource( 3 )

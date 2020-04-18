@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
-[ext_resource path="res://Test Scenes/ResourceProp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Test Scenes/ResourceProps/ResourceProp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/CursorTracker.gd" type="Script" id=3]
 [ext_resource path="res://Test Scenes/PlayerMovement.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Test Scenes/ResourceHandout.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Test Scenes/Resource Handouts/ResourceHandout.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
@@ -96,6 +96,3 @@ autostart = true
 [editable path="ResourceProp3"]
 
 [editable path="ResourceProp4"]
-
-[editable path="ResourceProp2"]
-

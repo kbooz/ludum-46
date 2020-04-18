@@ -9,9 +9,12 @@ extents = Vector2( 32, 32 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 136.0
 
-[node name="ResourceHandout" type="Area2D"]
-position = Vector2( 816, 416 )
+[node name="FoodResourceHandout" type="Area2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+resource = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -23,6 +26,7 @@ scale = Vector2( 1.1875, 1.1875 )
 texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.0313726, 0, 1, 1 )
 texture = ExtResource( 2 )
 
 [node name="InteractionArea" type="Area2D" parent="."]

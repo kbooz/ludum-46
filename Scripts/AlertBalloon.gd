@@ -6,6 +6,7 @@ extends Node2D
 # Algebraic substitution 
 
 onready var sprite = $Sprite
+onready var kind = $Kind
 
 var target_position = null
 var active = false

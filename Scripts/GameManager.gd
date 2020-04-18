@@ -15,6 +15,7 @@ func _process(delta):
 	var props_total_issues = check_props_issues()
 	issues = props_total_issues
 
+
 func check_props_issues():
 	var total_issues = 0
 	if props:
