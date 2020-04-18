@@ -8,9 +8,9 @@ export (int) var resource_max = 100
 export (int) var curr_resource = 90
 export (int) var depletion_rate = 1
 export (bool) var dando_merda = false
+export (int, "empty", "beer", "food", "music", "cleaning") var resourceS
 
 var game_manager
-var resource = GlobalResources.RESOURCES.BEER
 
 var is_hovering : = false
 var interactive : = false

@@ -12,7 +12,7 @@ func _ready():
 	props = get_tree().get_nodes_in_group("props")
 	collect_resources()
 
-func _process(delta):
+func _process(_delta):
 	collect_resources()
 
 func collect_resources():
