@@ -5,6 +5,7 @@ export (int) var ACCELERATION = 50
 export (int) var FRICTION = 25
 
 var velocity = Vector2.ZERO
+var resource = GlobalResources.RESOURCES.EMPTY
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO

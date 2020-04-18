@@ -12,7 +12,7 @@ var game_manager
 var resource = GlobalResources.RESOURCES.BEER
 
 var is_hovering : = false
-var interactive : = true
+var interactive : = false
 
 func _ready():
 	outline.visible = false
