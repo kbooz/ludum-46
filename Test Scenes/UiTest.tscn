@@ -54,6 +54,9 @@ position = Vector2( 344, 224 )
 ] instance=ExtResource( 4 )]
 position = Vector2( 512, 308 )
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
 [editable path="ResourceProp"]
 
 [editable path="ResourceProp2"]
