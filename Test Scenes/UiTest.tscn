@@ -46,7 +46,7 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorTracker"]
 shape = SubResource( 1 )
 
-[node name="ResourceProp2" parent="." instance=ExtResource( 6 )]
+[node name="ResourceHandout" parent="." instance=ExtResource( 6 )]
 position = Vector2( 344, 224 )
 
 [node name="Player" parent="." groups=[
@@ -58,5 +58,3 @@ position = Vector2( 512, 308 )
 current = true
 
 [editable path="ResourceProp"]
-
-[editable path="ResourceProp2"]
