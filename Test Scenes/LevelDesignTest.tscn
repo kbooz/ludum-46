@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
+[ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/CursorTracker.gd" type="Script" id=3]
 [ext_resource path="res://Test Scenes/PlayerMovement.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Light2D.gd" type="Script" id=5]
 [ext_resource path="res://Test Scenes/ResourceProps/MusicResourceProp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Test Scenes/ResourceProps/BeerResourceProp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Test Scenes/Resource Handouts/CleaningResourceHandout.tscn" type="PackedScene" id=8]
@@ -131,6 +133,9 @@ polygon = PoolVector2Array( 1636, -608, 1572, -608, 1576, -468, 1628, -460, 1628
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Room Collisions"]
 polygon = PoolVector2Array( 1088, 24, 1100, 132, 1036, 132, 1024, 328, 1068, 256, 1100, 260, 1132, 316, 1324, 404, 1316, 536, 1044, 540, 1036, 468, 892, 476, 892, 516, 848, 520, 848, 492, 836, 436, 860, 416, 976, 304, 968, 152, 920, 152, 924, 40, 968, 28, 972, -124, 1016, -132, 1012, 16 )
 
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( 960, -640, 892, -640, 888, -428, 956, -428, 964, -304, 932, -400, 884, -396, 872, -364, 884, -292, 968, -288, 992, -332, 988, -644 )
+
 [node name="Player" parent="." groups=[
 "player",
 ] instance=ExtResource( 4 )]
@@ -196,4 +201,10 @@ stream = ExtResource( 19 )
 volume_db = -20.194
 autoplay = true
 attenuation = 2.0
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 388, -180 )
+scale = Vector2( 0.642, 0.642 )
+texture = ExtResource( 2 )
+script = ExtResource( 5 )
 [connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]
