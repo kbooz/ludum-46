@@ -12,8 +12,10 @@ var target_position = null
 var active = false
 var has_played = false
 
+
 func _ready():
 	hide()
+	
 
 func set_balloon_position(bounds : Rect2):
 	if target_position == null:
