@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -17,10 +17,10 @@
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Test Scenes/Octopus.tscn" type="PackedScene" id=17]
-[ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=18]
 [ext_resource path="res://audio/ambient_people(1).ogg" type="AudioStream" id=18]
 [ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets-originals/png/environment/Artboard_2000x2000.png" type="Texture" id=20]
+[ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
@@ -182,7 +182,7 @@ position = Vector2( 348, -712 )
 
 [node name="AlertBalloon" parent="BeerResourceProp" instance=ExtResource( 13 )]
 
-[node name="icon" parent="." instance=ExtResource( 18 )]
+[node name="icon" parent="." instance=ExtResource( 21 )]
 visible = false
 position = Vector2( 386.74, -260.158 )
 scale = Vector2( 18.34, 17.969 )
