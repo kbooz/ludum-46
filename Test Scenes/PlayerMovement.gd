@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export (int) var MAX_SPEED = 80
+export (int) var MAX_SPEED = 200
 export (int) var ACCELERATION = 500
-export (int) var FRICTION = 500
+export (int) var FRICTION = 800
 
 onready var Animator = $AnimationPlayer
 onready var sprite = $Sprite
