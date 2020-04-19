@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export (int) var MAX_SPEED = 200
-export (int) var ACCELERATION = 50
-export (int) var FRICTION = 50
+export (int) var MAX_SPEED = 80
+export (int) var ACCELERATION = 500
+export (int) var FRICTION = 500
 
 onready var Animator = $AnimationPlayer
 onready var sprite = $Sprite
@@ -24,7 +24,7 @@ func _physics_process(delta):
 			facing_left = false
 		Animator.play("Walk")
 		velocity += input_vector * ACCELERATION * delta
-		velocity = velocity.clamped(MAX_SPEED * delta)
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		Animator.stop()
 		sprite.frame = 0
@@ -35,4 +35,7 @@ func _physics_process(delta):
 	else:
 		sprite.scale.x = 1
 	
-	move_and_collide(velocity)
+	move()
+
+func move():
+	velocity = move_and_slide(velocity)
