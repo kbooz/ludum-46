@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -13,10 +13,11 @@
 [ext_resource path="res://Test Scenes/ResourceProps/FoodResourceProp.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Test Scenes/Resource Handouts/BeerResourceHandout.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Test Scenes/AlertBalloon.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets-originals/png/npcs/ghost.png" type="Texture" id=14]
-[ext_resource path="res://assets-originals/png/npcs/mush.png" type="Texture" id=15]
-[ext_resource path="res://assets-originals/png/npcs/tatoe.png" type="Texture" id=16]
-[ext_resource path="res://assets-originals/png/npcs/tentacle.png" type="Texture" id=17]
+[ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Test Scenes/Octopus.tscn" type="PackedScene" id=17]
+[ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=18]
 [ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets-originals/png/environment/Artboard_2000x2000.png" type="Texture" id=20]
 
@@ -61,42 +62,6 @@ __meta__ = {
 position = Vector2( 724, 108 )
 texture = ExtResource( 20 )
 
-[node name="ghost" type="Sprite" parent="."]
-position = Vector2( 1423.05, 793.184 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 14 )
-
-[node name="ghost2" type="Sprite" parent="."]
-position = Vector2( -64.8798, -178.256 )
-texture = ExtResource( 14 )
-
-[node name="mush" type="Sprite" parent="."]
-position = Vector2( 755.379, -125.902 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 15 )
-
-[node name="mush2" type="Sprite" parent="."]
-position = Vector2( 620.474, -443.11 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 15 )
-
-[node name="tatoe" type="Sprite" parent="."]
-position = Vector2( 1304.96, 790.615 )
-texture = ExtResource( 16 )
-
-[node name="tatoe2" type="Sprite" parent="."]
-position = Vector2( 762.684, -443.11 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 16 )
-
-[node name="tentacle" type="Sprite" parent="."]
-position = Vector2( 641.548, -116.978 )
-texture = ExtResource( 17 )
-
-[node name="tentacle2" type="Sprite" parent="."]
-position = Vector2( 1483.28, 134.937 )
-texture = ExtResource( 17 )
-
 [node name="CursorTracker" type="Area2D" parent="."]
 script = ExtResource( 3 )
 __meta__ = {
@@ -136,12 +101,33 @@ polygon = PoolVector2Array( 1088, 24, 1100, 132, 1036, 132, 1024, 328, 1068, 256
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Room Collisions"]
 polygon = PoolVector2Array( 960, -640, 892, -640, 888, -428, 956, -428, 964, -304, 932, -400, 884, -396, 872, -364, 884, -292, 968, -288, 992, -332, 988, -644 )
 
-[node name="Player" parent="." groups=[
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( 68.1511, -178.664 )
+rotation = 1.50996e-07
+
+[node name="Octopus" parent="YSort" instance=ExtResource( 17 )]
+
+[node name="Ghost" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 91.7942, 8.18883 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Potato" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 93.2808, -116.339 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Mushroom" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( -4.36456, -116.097 )
+rotation = -1.50996e-07
+
+[node name="Player" parent="YSort" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 512, 308 )
+position = Vector2( 443.849, 486.663 )
+rotation = -1.50996e-07
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
 
 [node name="PartyometerTimer" type="Timer" parent="."]
@@ -195,6 +181,11 @@ position = Vector2( 348, -712 )
 
 [node name="AlertBalloon" parent="BeerResourceProp" instance=ExtResource( 13 )]
 
+[node name="icon" parent="." instance=ExtResource( 18 )]
+visible = false
+position = Vector2( 386.74, -260.158 )
+scale = Vector2( 18.34, 17.969 )
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 344, -44 )
 stream = ExtResource( 19 )
@@ -207,4 +198,7 @@ position = Vector2( 388, -180 )
 scale = Vector2( 0.642, 0.642 )
 texture = ExtResource( 2 )
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]
