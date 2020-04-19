@@ -18,6 +18,7 @@
 [ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Test Scenes/Octopus.tscn" type="PackedScene" id=17]
 [ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=18]
+[ext_resource path="res://audio/ambient_people(1).ogg" type="AudioStream" id=18]
 [ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets-originals/png/environment/Artboard_2000x2000.png" type="Texture" id=20]
 
@@ -186,7 +187,7 @@ visible = false
 position = Vector2( 386.74, -260.158 )
 scale = Vector2( 18.34, 17.969 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 344, -44 )
 stream = ExtResource( 19 )
 volume_db = -20.194
@@ -201,4 +202,9 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Chatter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.0
+autoplay = true
 [connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]
