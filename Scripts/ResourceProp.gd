@@ -48,7 +48,7 @@ func _process(_delta):
 func _input(event):
 	if (event is InputEventMouseButton) and event.is_pressed():
 		if is_hovering and interactive:
-			game_manager.request_refill(self)
+			$AlertBalloon.has_played = !(game_manager.request_refill(self))
 
 func _on_ResourceProp_area_entered(area):
 	if area.name == "CursorTracker":

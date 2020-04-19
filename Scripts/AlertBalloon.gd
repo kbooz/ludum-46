@@ -10,6 +10,7 @@ onready var icon = $Sprite/Icon
 
 var target_position = null
 var active = false
+var has_played = false
 
 func _ready():
 	hide()
@@ -44,6 +45,9 @@ func set_balloon_position(bounds : Rect2):
 		hide()
 	else:
 		show()
+		if !has_played:
+			$AudioStreamPlayer2D.play(1)
+			has_played = true
 
 func set_balloon_rotation():
 	# get the displacement vector

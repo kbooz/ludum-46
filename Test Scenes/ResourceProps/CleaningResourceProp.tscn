@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/ResourceProp.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Test Scenes/AlertBalloon.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -53,6 +54,8 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AlertBalloon" parent="." instance=ExtResource( 3 )]
 [connection signal="area_entered" from="." to="." method="_on_ResourceProp_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_ResourceProp_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

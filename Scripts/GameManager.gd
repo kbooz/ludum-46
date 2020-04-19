@@ -33,10 +33,10 @@ func request_refill(prop):
 	if prop.resource == GlobalResources.RESOURCES.MUSIC:
 		if player.resource == GlobalResources.RESOURCES.EMPTY:
 			print("Music Adjusted")
-			return
+			return true
 		else:
 			print("Hands full")
-			return
+			return false
 			
 	if prop.resource == player.resource:
 		player.resource = GlobalResources.RESOURCES.EMPTY
@@ -47,8 +47,10 @@ func request_refill(prop):
 			levelLabel.text = "Level " + str(level)
 		print(level)
 		print("Refilled")
+		return true
 	else:
 		print("Doesnt have correct resource")
+		return false
 	pass
 	
 func request_delivery(handout):

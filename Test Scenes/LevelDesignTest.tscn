@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://kenney-textures/Light/texture_01.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets-originals/png/npcs/tatoe.png" type="Texture" id=16]
 [ext_resource path="res://assets-originals/png/npcs/tentacle.png" type="Texture" id=17]
 [ext_resource path="res://assets-originals/png/environment/floor_test.png" type="Texture" id=18]
+[ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -31,6 +32,10 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
 1/name = "texture_01.png 1"
@@ -41,6 +46,11 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 1 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -57,6 +67,10 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
 
@@ -206,4 +220,10 @@ position = Vector2( 328, 420 )
 position = Vector2( 348, -712 )
 
 [node name="AlertBalloon" parent="BeerResourceProp" instance=ExtResource( 13 )]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 344, -44 )
+stream = ExtResource( 19 )
+autoplay = true
+attenuation = 2.0
 [connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]
