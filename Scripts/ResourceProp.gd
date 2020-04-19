@@ -3,6 +3,7 @@ extends Area2D
 onready var outline : = $Outline
 onready var timer : = $Timer
 onready var label : = $Control/Label
+onready var tween : = $Tween
 
 export (int) var resource_max = 100
 export (int) var curr_resource = 90
@@ -16,8 +17,10 @@ var game_manager
 
 var is_hovering : = false
 var interactive : = false
+var initial_label_position = 0
 
 func _ready():
+	initial_label_position = label.rect_position.y
 	outline.visible = false
 	label.visible = false
 	game_manager = get_tree().get_nodes_in_group("Game Manager")[0]

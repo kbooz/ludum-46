@@ -8,12 +8,12 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.13818, 0.13818 )
+scale = Vector2( 0.0795737, 0.0795737 )
 texture = ExtResource( 1 )
 centered = false
-offset = Vector2( -1022.42, -481.979 )
+offset = Vector2( -1013.31, -481.979 )
 
-[node name="Kind" type="Sprite" parent="Sprite"]
+[node name="Icon" type="Sprite" parent="Sprite"]
 position = Vector2( -586.191, 0 )
 scale = Vector2( 1.3741, 1.3741 )
 texture = ExtResource( 3 )

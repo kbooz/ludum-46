@@ -6,7 +6,7 @@ extends Node2D
 # Algebraic substitution 
 
 onready var sprite = $Sprite
-onready var kind = $Kind
+onready var icon = $Sprite/Icon
 
 var target_position = null
 var active = false
@@ -49,6 +49,7 @@ func set_balloon_rotation():
 	# get the displacement vector
 	var angle = (global_position - sprite.global_position).angle()
 	sprite.global_rotation = angle
+	icon.global_rotation = 0
 
 func _physics_process(delta):
 	var canvas = get_canvas_transform()
