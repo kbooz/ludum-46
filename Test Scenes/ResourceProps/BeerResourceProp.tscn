@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/ResourceProp.gd" type="Script" id=2]
@@ -8,6 +8,10 @@ extents = Vector2( 32, 32 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 136.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Popup"
+length = 0.4
 
 [node name="BeerResourceProp" type="Area2D"]
 script = ExtResource( 2 )
@@ -53,6 +57,9 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Popup = SubResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_ResourceProp_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_ResourceProp_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

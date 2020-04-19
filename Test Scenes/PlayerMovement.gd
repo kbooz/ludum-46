@@ -9,6 +9,7 @@ onready var sprite = $Sprite
 
 var velocity = Vector2.ZERO
 var resource = GlobalResources.RESOURCES.EMPTY
+var facing_left = false
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -18,10 +19,10 @@ func _physics_process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		print (input_vector)
-		if input_vector.x <= 0:
-			sprite.scale.x = -1
-		else:
-			sprite.scale.x = 1
+		if input_vector.x < 0:
+			facing_left = true
+		elif input_vector.x > 0:
+			facing_left = false
 		Animator.play("Walk")
 		velocity += input_vector * ACCELERATION * delta
 		velocity = velocity.clamped(MAX_SPEED * delta)
@@ -29,5 +30,10 @@ func _physics_process(delta):
 		Animator.stop()
 		sprite.frame = 0
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	
+	if facing_left:
+		sprite.scale.x = -1
+	else:
+		sprite.scale.x = 1
 	
 	move_and_collide(velocity)
