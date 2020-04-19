@@ -38,7 +38,6 @@ func _on_ResourceProp_area_exited(area):
 	if area.name == "CursorTracker":
 		is_hovering = false
 
-
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		interactive = true

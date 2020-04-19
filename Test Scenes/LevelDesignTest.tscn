@@ -87,6 +87,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Level" type="Label" parent="CanvasLayer/Control"]
+margin_left = 82.032
+margin_top = 67.3554
+margin_right = 179.032
+margin_bottom = 96.3554
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PrototypeTiles" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 format = 1

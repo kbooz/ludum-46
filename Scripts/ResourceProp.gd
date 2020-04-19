@@ -18,6 +18,8 @@ var game_manager
 var is_hovering : = false
 var interactive : = false
 var initial_label_position = 0
+var initial_issues_threshold = 50
+var issues_threshold = initial_issues_threshold
 
 func _ready():
 	initial_label_position = label.rect_position.y
@@ -26,7 +28,9 @@ func _ready():
 	game_manager = get_tree().get_nodes_in_group("Game Manager")[0]
 
 func _process(_delta):
-	if curr_resource < 50:
+	issues_threshold = clamp(initial_issues_threshold + ceil(game_manager.level * 1.5), 50, 90)
+	
+	if curr_resource < issues_threshold:
 		$AlertBalloon.active = true
 		has_issues = true
 	else:

@@ -18,7 +18,6 @@ func _physics_process(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		print (input_vector)
 		if input_vector.x < 0:
 			facing_left = true
 		elif input_vector.x > 0:
