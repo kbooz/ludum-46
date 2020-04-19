@@ -18,7 +18,7 @@
 [ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets-originals/png/environment/Artboard_2000x2000.png" type="Texture" id=20]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
 
 [node name="Game" type="Node2D" groups=[
@@ -56,7 +56,7 @@ __meta__ = {
 }
 
 [node name="Artboard_2000x2000" type="Sprite" parent="."]
-position = Vector2( 722.836, 108.232 )
+position = Vector2( 724, 108 )
 texture = ExtResource( 20 )
 
 [node name="ghost" type="Sprite" parent="."]
@@ -103,7 +103,33 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorTracker"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
+
+[node name="Room Collisions" type="StaticBody2D" parent="."]
+
+[node name="NorthWall" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( -276, -892, 1724, -888, 1724, -736, 1020, -732, 1020, -264, 996, -244, 968, -268, 968, -732, -280, -720 )
+
+[node name="NorthFurniture" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( -200, -728, -152, -672, -120, -684, -144, -704, -92, -724, -92, -684, -28, -684, -24, -728, 108, -728, 112, -664, 300, -668, 296, -732, 536, -728, 532, -660, 808, -660, 808, -720, 880, -720, 880, -676, 944, -676, 944, -716, 1236, -720, 1236, -660, 1408, -660, 1416, -724, 1628, -724, 1632, -844, -196, -840 )
+
+[node name="EastWall" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( 1636, -884, 1640, 316, 1036, 316, 1020, -24, 960, -28, 964, 312, 816, 320, 820, 468, 1636, 476, 1632, 1108, 1712, 1092, 1720, -892 )
+
+[node name="SotuhWall" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( -276, 1040, 1716, 1036, 1720, 1108, -284, 1124 )
+
+[node name="WestWall" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( -200, 1084, -204, 468, 4, 456, 12, 408, -204, 412, -204, -892, -268, -892, -284, 1132, -200, 1124 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( -192, 804, -96, 804, -108, 608, -196, 612, -204, 316, -116, 320, -120, 280, -208, 288, -204, 156, -104, 152, -96, -48, -208, -40, -212, -308, -144, -308, -132, -424, -200, -444, -200, -508, -148, -508, -136, -628, -192, -636, -208, -744, -248, -720, -280, 828 )
+
+[node name="EastCollision" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( 1636, -608, 1572, -608, 1576, -468, 1628, -460, 1628, -292, 1536, -300, 1536, -28, 1624, -24, 1632, 588, 1564, 588, 1568, 780, 1632, 780, 1680, 780, 1680, -616 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Room Collisions"]
+polygon = PoolVector2Array( 1088, 24, 1100, 132, 1036, 132, 1024, 328, 1068, 256, 1100, 260, 1132, 316, 1324, 404, 1316, 536, 1044, 540, 1036, 468, 892, 476, 892, 516, 848, 520, 848, 492, 836, 436, 860, 416, 976, 304, 968, 152, 920, 152, 924, 40, 968, 28, 972, -124, 1016, -132, 1012, 16 )
 
 [node name="Player" parent="." groups=[
 "player",
