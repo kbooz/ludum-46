@@ -19,31 +19,59 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = 4.0
 color = Color( 0.137255, 0.137255, 0.137255, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 0.996
+anchor_bottom = 0.007
+margin_top = 48.0
+margin_right = 4.09595
+margin_bottom = 110.8
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 266.0
-margin_right = 1024.0
-margin_bottom = 333.0
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 391.0
-margin_right = 632.0
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 397.0
+margin_right = 626.0
 margin_bottom = 67.0
 custom_fonts/font = SubResource( 1 )
-text = "Game Over!"
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.004
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 132.0
+margin_right = -320.096
+margin_bottom = -212.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_top = 12.0
+margin_right = 384.0
+margin_bottom = 226.0
+text = "Nice Jobb!
+
+You kept the party going for xx:xx!
+
+XX people attended!
+
+You got to level XX!"
+align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,12 +82,38 @@ anchor_top = 0.587
 anchor_right = 0.5
 anchor_bottom = 0.587
 margin_left = -48.0
-margin_top = 43.8
+margin_top = 71.8
 margin_right = 48.0
-margin_bottom = 63.8
+margin_bottom = 99.8
 theme = ExtResource( 2 )
 text = "try again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button3" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -52.0
+margin_top = 512.0
+margin_right = 53.0
+margin_bottom = -60.0
+theme = ExtResource( 2 )
+text = "back to title"
+
+[node name="Button2" type="Button" parent="."]
+anchor_left = 0.501
+anchor_right = 0.501
+anchor_bottom = 0.993
+margin_left = -57.024
+margin_top = 468.0
+margin_right = 57.976
+margin_bottom = -99.8
+theme = ExtResource( 2 )
+text = "watch credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

@@ -13,12 +13,16 @@ var initial_partyometer_depletion_rate = 1
 var partyometer_depletion_rate = initial_partyometer_depletion_rate
 var partyometer_increase_rate = 1
 var guests_displayed = 0
+var start_time : int
+var end_time : int
+var max_attendance = 0
 
 func _ready():
 	VisualServer.set_default_clear_color(Color("#232323"))
 	init()
 	player = get_tree().get_nodes_in_group("player")[0]
 	props = get_tree().get_nodes_in_group("props")
+	start_time = OS.get_unix_time()
 
 func init():
 	level = 1
@@ -37,7 +41,14 @@ func _process(delta):
 	# print (disaster_chance)
 	
 	if partyometer.value <= 0:
+		end_time = OS.get_unix_time()
+		GlobalResources.time_mins = (end_time - start_time) / 60
+		GlobalResources.time_secs = (end_time - start_time) % 60
+		GlobalResources.max_attendance = max_attendance
+		GlobalResources.level_reached = level
+		
 		get_tree().change_scene("res://Test Scenes/Scenes/GameOver.tscn")
+		
 
 func check_props_issues():
 	var total_issues = 0
@@ -103,8 +114,10 @@ func _on_PartyometerTimer_timeout():
 		partyometer.value -= partyometer_depletion_rate
 	else:
 		partyometer.value += partyometer_increase_rate
-		
-	guests_displayed = (partyometer.value / 100) * 4 * level
+	
+	guests_displayed = min((partyometer.value / 100) * 4 * level, 40)
+	if guests_displayed > max_attendance:
+		max_attendance = floor(guests_displayed)
 	
 	var guests = get_tree().get_nodes_in_group("generic_guests")
 	for i in range(guests.size() - 1):
