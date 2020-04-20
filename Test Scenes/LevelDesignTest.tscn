@@ -130,6 +130,9 @@ rotation = -1.50996e-07
 ] instance=ExtResource( 4 )]
 position = Vector2( 443.849, 486.663 )
 rotation = -1.50996e-07
+MAX_SPEED = 200
+ACCELERATION = 500
+FRICTION = 800
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true

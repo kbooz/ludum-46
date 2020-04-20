@@ -4,6 +4,10 @@ export (int) var MAX_SPEED = 200
 export (int) var ACCELERATION = 500
 export (int) var FRICTION = 800
 
+var emptySprite = preload("res://assets-originals/png/spritesheet-128.png")
+var beerSprite = preload("res://assets-originals/png/char-beer-spritesheet.png")
+var foodSprite = preload("res://assets-originals/png/char-food-spritesheet.png")
+
 onready var Animator = $AnimationPlayer
 onready var sprite = $Sprite
 
@@ -11,7 +15,15 @@ var velocity = Vector2.ZERO
 var resource = GlobalResources.RESOURCES.EMPTY
 var facing_left = false
 
+var sprites = {
+	GlobalResources.RESOURCES.EMPTY: emptySprite,
+	GlobalResources.RESOURCES.BEER: beerSprite,
+	GlobalResources.RESOURCES.FOOD: foodSprite
+}
+
 func _physics_process(delta):
+	sprite.texture = sprites[resource]
+	
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
