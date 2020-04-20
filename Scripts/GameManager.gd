@@ -23,6 +23,8 @@ func _process(delta):
 	var props_total_issues = check_props_issues()
 	issues = props_total_issues
 	
+	var disaster_chance = clamp(level-2, 0, 9) / 10.0
+	
 	if partyometer.value <= 0:
 		get_tree().change_scene("res://Test Scenes/Scenes/GameOver.tscn")
 
@@ -54,7 +56,7 @@ func request_refill(prop):
 			player.resource = GlobalResources.RESOURCES.EMPTY
 			prop.curr_resource = prop.resource_max
 			movements += 1
-			if (movements % 5 == 0):
+			if (movements % 3 == 0):
 				level += 1
 				levelLabel.text = "Level " + str(level)
 			print(level)
