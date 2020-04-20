@@ -36,9 +36,14 @@ func _process(_delta):
 	if curr_resource < issues_threshold:
 		$AlertBalloon.active = true
 		has_issues = true
+		if resource == GlobalResources.RESOURCES.MUSIC:
+			$Music.stop()
 	else:
 		$AlertBalloon.active = false
 		has_issues = false
+		if resource == GlobalResources.RESOURCES.MUSIC:
+			if !$Music.playing:
+				$Music.play()
 		
 	if is_hovering:
 		label.visible = true

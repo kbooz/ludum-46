@@ -102,6 +102,13 @@ position = Vector2( 1504.83, 455.371 )
 [node name="MusicResource" parent="." instance=ExtResource( 10 )]
 position = Vector2( 927.428, -516.346 )
 
+[node name="Music" type="AudioStreamPlayer2D" parent="MusicResource"]
+position = Vector2( -583.428, 472.346 )
+stream = ExtResource( 19 )
+volume_db = -10.0
+autoplay = true
+attenuation = 2.0
+
 [node name="Room Collisions" type="StaticBody2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -176,12 +183,6 @@ visible = false
 material = SubResource( 3 )
 position = Vector2( 936.917, -198.34 )
 scale = Vector2( 18.34, 17.969 )
-
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 344, -44 )
-stream = ExtResource( 19 )
-volume_db = -20.194
-attenuation = 2.0
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 388, -180 )
