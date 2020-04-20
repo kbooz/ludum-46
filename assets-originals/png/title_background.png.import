@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/texture_09.png-545580d437a9cf55cd243c9f78d8b2e0.stex"
+path="res://.import/title_background.png-2db4da13efbc6450490c23dc0fdd93be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kenney-textures/Green/texture_09.png"
-dest_files=[ "res://.import/texture_09.png-545580d437a9cf55cd243c9f78d8b2e0.stex" ]
+source_file="res://assets-originals/png/title_background.png"
+dest_files=[ "res://.import/title_background.png-2db4da13efbc6450490c23dc0fdd93be.stex" ]
 
 [params]
 
