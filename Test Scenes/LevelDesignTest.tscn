@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -20,19 +20,13 @@
 [ext_resource path="res://audio/ambient_people(1).ogg" type="AudioStream" id=18]
 [ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets-originals/png/environment/Artboard_2000x2000.png" type="Texture" id=20]
-[ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=21]
 [ext_resource path="res://audio/alert2.wav" type="AudioStream" id=22]
 [ext_resource path="res://audio/alert_fail.wav" type="AudioStream" id=23]
 [ext_resource path="res://assets-originals/png/fog1x.png" type="Texture" id=24]
 [ext_resource path="res://Test Scenes/Guest.tscn" type="PackedScene" id=25]
-[ext_resource path="res://shader/crt.shader" type="Shader" id=26]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 26 )
-shader_param/scan_line_count = 0.0
 
 [node name="Game" type="Node" groups=[
 "Game Manager",
@@ -89,6 +83,8 @@ shape = SubResource( 1 )
 
 [node name="FoodResource" parent="." instance=ExtResource( 7 )]
 position = Vector2( -164.816, -393.081 )
+curr_resource = 65
+resource_refill = 30
 
 [node name="FoodHandout" parent="." instance=ExtResource( 9 )]
 position = Vector2( 968.286, 465.281 )
@@ -98,9 +94,13 @@ position = Vector2( 1525.91, -736.621 )
 
 [node name="BeerResource" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1504.83, 484.465 )
+curr_resource = 70
+resource_refill = 35
 
 [node name="MusicResource" parent="." instance=ExtResource( 10 )]
 position = Vector2( 927.428, -516.346 )
+curr_resource = 85
+resource_refill = 40
 
 [node name="Music" type="AudioStreamPlayer2D" parent="MusicResource"]
 position = Vector2( -1115.43, -271.654 )
@@ -476,17 +476,6 @@ position = Vector2( 1035.02, -345.796 )
 
 [node name="PartyometerTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="icon" parent="." instance=ExtResource( 21 )]
-visible = false
-position = Vector2( 732.066, -150.109 )
-scale = Vector2( 50.1394, 49.1251 )
-
-[node name="icon2" parent="." instance=ExtResource( 21 )]
-visible = false
-material = SubResource( 3 )
-position = Vector2( 748.747, 144.613 )
-scale = Vector2( 54.4762, 52.6544 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 388, -180 )

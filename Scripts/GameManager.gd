@@ -16,6 +16,7 @@ var guests_displayed = 0
 var start_time : int
 var end_time : int
 var max_attendance = 0
+var disaster_chance
 
 func _ready():
 	VisualServer.set_default_clear_color(Color("#232323"))
@@ -29,6 +30,7 @@ func init():
 	level = 1
 	movements = 0
 	partyometer_depletion_rate = 1
+	disaster_chance = 0
 
 func _process(delta):
 	var props_total_issues = check_props_issues()
@@ -38,10 +40,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		increase_level()
 		
-	var disaster_chance = clamp(level-2, 0, 6) / 10.0
-	
-	
-	
 	if partyometer.value <= 0:
 		end_time = OS.get_unix_time()
 		GlobalResources.time_mins = (end_time - start_time) / 60
@@ -50,7 +48,6 @@ func _process(delta):
 		GlobalResources.level_reached = level
 		
 		get_tree().change_scene("res://Test Scenes/Scenes/GameOver.tscn")
-		
 
 func check_props_issues():
 	var total_issues = 0
@@ -63,7 +60,7 @@ func request_refill(prop):
 	if prop.resource == GlobalResources.RESOURCES.MUSIC:
 		if player.resource == GlobalResources.RESOURCES.EMPTY:
 			if prop.curr_resource < prop.issues_threshold:
-				prop.curr_resource = prop.resource_max
+				prop.curr_resource += prop.resource_refill
 				print("Music Adjusted")
 				$Refill.play(1)
 				$CanvasLayer/Control/AnimationPlayer.play("empty")
@@ -79,7 +76,7 @@ func request_refill(prop):
 	if prop.resource == player.resource:
 		if prop.curr_resource < prop.issues_threshold:
 			player.resource = GlobalResources.RESOURCES.EMPTY
-			prop.curr_resource = prop.resource_max
+			prop.curr_resource += prop.resource_refill
 			movements += 1
 			if (movements % 3 == 0):
 				increase_level()
@@ -103,6 +100,9 @@ func request_delivery(handout):
 		print("Player has hands full")
 		return
 		
+	if randf() < disaster_chance:
+		var disaster_prop = props[randi() % props.size()]
+		disaster_prop.curr_resource = disaster_prop.issues_threshold
 	player.resource = handout.resource
 	$CanvasLayer/Control/AnimationPlayer.play(animations[handout.resource])
 
@@ -110,6 +110,7 @@ func increase_level():
 	level += 1
 	levelLabel.text = "Level " + str(level)
 	partyometer_depletion_rate = clamp(ceil(initial_partyometer_depletion_rate * level * 0.75), 1, 7)
+	disaster_chance = clamp(level-2, 0, 9) / 10.0
 
 func _on_PartyometerTimer_timeout():
 	if issues > 0:

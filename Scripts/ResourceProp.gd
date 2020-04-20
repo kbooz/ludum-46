@@ -7,6 +7,7 @@ onready var sprite : = $Sprite
 export (int) var resource_max = 100
 export (int) var curr_resource = 90
 export (int) var depletion_rate = 1
+export (int) var resource_refill = 20
 
 export (int, "empty", "beer", "food", "music", "cleaning") var resource
 export (bool) var has_issues = false
