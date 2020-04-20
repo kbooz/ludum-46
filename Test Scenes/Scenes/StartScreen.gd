@@ -12,7 +12,7 @@ func _on_StartButton_pressed():
 	get_tree().change_scene("res://Test Scenes/LevelDesignTest.tscn")
 
 func _on_HowToPlayButton_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Test Scenes/Scenes/Tutorial.tscn")
 
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://Test Scenes/Scenes/Credits.tscn")
