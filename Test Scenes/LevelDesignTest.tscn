@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Test Scenes/Scenes/MusicResource.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Test Scenes/Control.tscn" type="PackedScene" id=11]
 [ext_resource path="res://OpenDyslexicBold.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Test Scenes/Scenes/GameOver.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
@@ -24,7 +25,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
 
-[node name="Game" type="Node2D" groups=[
+[node name="Game" type="Node" groups=[
 "Game Manager",
 ]]
 script = ExtResource( 1 )
@@ -39,6 +40,9 @@ margin_top = 555.355
 margin_right = 122.032
 margin_bottom = 590.355
 custom_fonts/font = ExtResource( 12 )
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 13 )]
+visible = false
 
 [node name="Artboard_2000x2000" type="Sprite" parent="."]
 position = Vector2( 724, 108 )
