@@ -23,8 +23,8 @@ func _process(delta):
 	var props_total_issues = check_props_issues()
 	issues = props_total_issues
 	
-	if partyometer.value < 0:
-		player.queue_free()
+	if partyometer.value <= 0:
+		get_tree().change_scene("res://Test Scenes/Scenes/GameOver.tscn")
 
 func check_props_issues():
 	var total_issues = 0
@@ -67,3 +67,5 @@ func request_delivery(handout):
 func _on_PartyometerTimer_timeout():
 	if issues > 0:
 		partyometer.value -= 1
+	else:
+		partyometer.value += 1
