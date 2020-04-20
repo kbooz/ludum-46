@@ -1,16 +1,20 @@
-# ludum-46
+# Don't Let The Party Die
 
-O jogo é um gerenciador de recursos, onde o ator principal (o jogador) precisa controlar recursos de uma festa para manter o festômetro acima do limite (threshold).
+**Don't Let The Party Die** is a party-resource-management game that will take your running-around skills to the next level. As Jaiminho, the manager demon, try to make the party last as long as you can while hell breaks loose.
 
-Game Loop:
-- Encontrar os problemas, indicados visualmente nos objetos ou nos cantos da tela;
-- Coletar os recursos para serem usados nos problemas;
-- Ir até os atores problemáticos e utilizar os recursos para resolvê-los.
+Made in 72 hours for Ludum Dare 46. Check it out: https://ldjam.com/events/ludum-dare/46/dont-let-the-party-die/
 
-Detalhes de UI:
-- Utilizar alertas de UI no canto da tela apontando para qual direção um objeto da festa precisa ter seu problema solucionado.
-- tbd
-- tbd
+## **Controls**:
+- WASD - movement
+- Mouse left-click - interact with the environment
 
-Mockup visual:
+## **Team**:
+- Diogohex (Dev) - https://twitter.com/diogohex
+- Inacho (Dev) - https://twitter.com/inacho_
+- ZezaumZZ (Artist) - https://twitter.com/ZezaumZZZ
+- Kbooz (Artist) - https://twitter.com/kbooz
+
+Game design done by all members! 
+
+Initial Mockup:
 <img src="mockup_ld46.png" />
