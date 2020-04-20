@@ -3,10 +3,10 @@
 [ext_resource path="res://Test Scenes/ResourceProps/ResourceProp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets-originals/png/fridge_prop.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 36.4729, 74.1468 )
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -33,28 +33,40 @@ void fragment()
     COLOR = tcol;
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/outLineSize = 0.0
 shader_param/outLineColor = Plane( 1, 1, 1, 1 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 37.4435, 74.4703 )
 
 [node name="BeerResource" instance=ExtResource( 1 )]
 resource = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="2"]
-material = SubResource( 5 )
+material = SubResource( 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="HoverArea" index="0"]
 position = Vector2( 0, -1.29413 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
+
+[node name="Control" parent="." index="5"]
+margin_left = -38.0
+margin_top = -119.0
+margin_right = 37.0
+margin_bottom = -81.0
 
 [node name="Label" parent="Control" index="0"]
-margin_top = -111.245
-margin_bottom = -97.2447
+anchor_left = 0.568
+anchor_top = 0.5
+anchor_right = 0.568
+anchor_bottom = 0.5
+margin_left = -37.5302
+margin_top = -17.8335
+margin_right = 26.4698
+margin_bottom = 17.1665

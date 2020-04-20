@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets-originals/party_o_meter/fill-texture_white.png" type="Texture" id=1]
+[ext_resource path="res://assets-originals/party_o_meter/marcadores2x-8.png" type="Texture" id=2]
+[ext_resource path="res://assets-originals/party_o_meter/festometro2x-8.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.847059, 0.164706, 0.164706, 0 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.847059, 0.164706, 0.164706, 1 )
+
+[sub_resource type="Theme" id=4]
+ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+ProgressBar/fonts/font = null
+ProgressBar/styles/bg = SubResource( 2 )
+ProgressBar/styles/fg = SubResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="."]
+margin_left = 82.032
+margin_top = 67.3554
+margin_right = 179.032
+margin_bottom = 96.3554
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 154.0
+margin_bottom = 369.0
+texture = ExtResource( 3 )
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 72.0
+margin_top = 56.0
+margin_right = 106.0
+margin_bottom = 260.0
+theme = SubResource( 4 )
+value = 100.0
+texture_progress = ExtResource( 1 )
+fill_mode = 3
+tint_progress = Color( 0.847059, 0.164706, 0.164706, 1 )
+nine_patch_stretch = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 154.0
+margin_bottom = 369.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

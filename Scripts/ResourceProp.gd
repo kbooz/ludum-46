@@ -20,7 +20,7 @@ var initial_label_position = 0
 var initial_issues_threshold = 50
 var issues_threshold = initial_issues_threshold
 
-var animations = ["beer", "food", "music", "cleaning"]
+var animations = ["empty", "beer", "food", "music", "cleaning"]
 
 func _ready():
 	mat = sprite.get_material()
@@ -28,7 +28,7 @@ func _ready():
 	initial_label_position = label.rect_position.y
 	label.visible = false
 	game_manager = get_tree().get_nodes_in_group("Game Manager")[0]
-	$AlertBalloon/AnimationPlayer.play(animations[resource+1])
+	$AlertBalloon/AnimationPlayer.play(animations[resource])
 
 func _process(_delta):
 	issues_threshold = clamp(initial_issues_threshold + ceil(game_manager.level * 1.5), 50, 90)
