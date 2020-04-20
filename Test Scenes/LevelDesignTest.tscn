@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=21]
 [ext_resource path="res://audio/alert2.wav" type="AudioStream" id=22]
 [ext_resource path="res://audio/alert_fail.wav" type="AudioStream" id=23]
+[ext_resource path="res://assets-originals/png/fog1x.png" type="Texture" id=24]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
@@ -74,6 +75,20 @@ stream = ExtResource( 23 )
 stream = ExtResource( 22 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.521569 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = -17.0
+margin_right = 9.0
+margin_bottom = 11.0
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 11 )]
 
@@ -373,10 +388,11 @@ autostart = true
 
 [node name="icon" parent="." instance=ExtResource( 21 )]
 visible = false
-position = Vector2( 386.74, -260.158 )
-scale = Vector2( 18.34, 17.969 )
+position = Vector2( 732.066, -150.109 )
+scale = Vector2( 50.1394, 49.1251 )
 
 [node name="icon2" parent="." instance=ExtResource( 21 )]
+visible = false
 material = SubResource( 3 )
 position = Vector2( 748.747, 144.613 )
 scale = Vector2( 54.4762, 52.6544 )

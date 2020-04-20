@@ -34,11 +34,13 @@ func _process(_delta):
 	issues_threshold = clamp(initial_issues_threshold + ceil(game_manager.level * 1.5), 50, 90)
 	
 	if curr_resource < issues_threshold:
+		label.set("custom_colors/font_color", Color(1, 0, 0))
 		$AlertBalloon.active = true
 		has_issues = true
 		if resource == GlobalResources.RESOURCES.MUSIC:
 			$Music.stop()
 	else:
+		label.set("custom_colors/font_color", Color(1, 1, 1))
 		$AlertBalloon.active = false
 		has_issues = false
 		if resource == GlobalResources.RESOURCES.MUSIC:
