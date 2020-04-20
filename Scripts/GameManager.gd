@@ -19,8 +19,8 @@ var max_attendance = 0
 var disaster_chance
 
 func _ready():
-	VisualServer.set_default_clear_color(Color("#232323"))
 	randomize()
+	VisualServer.set_default_clear_color(Color("#232323"))
 	init()
 
 func init():
