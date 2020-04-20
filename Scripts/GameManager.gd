@@ -36,7 +36,9 @@ func check_props_issues():
 func request_refill(prop):
 	if prop.resource == GlobalResources.RESOURCES.MUSIC:
 		if player.resource == GlobalResources.RESOURCES.EMPTY:
+			prop.curr_resource = prop.resource_max
 			print("Music Adjusted")
+			$Refill.play(1)
 			return true
 		else:
 			print("Hands full")
@@ -51,6 +53,7 @@ func request_refill(prop):
 			levelLabel.text = "Level " + str(level)
 		print(level)
 		print("Refilled")
+		$Refill.play(1)
 		return true
 	else:
 		print("Doesnt have correct resource")
