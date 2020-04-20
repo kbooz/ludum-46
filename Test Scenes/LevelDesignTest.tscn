@@ -35,8 +35,8 @@ uniform float scan_line_count : hint_range(0, 1080) = 50;
 vec2 uv_curve(vec2 uv) {
 	uv = (uv - 0.5) * 2.0;
 	
-	uv.x *= 1.0 + pow(abs(uv.y) / 4.0, 2.0);
-	uv.y *= 1.0 + pow(abs(uv.x) / 3.5, 2.0);
+	uv.x *= 1.0 + pow(abs(uv.y) / 8.0, 2.0);
+	uv.y *= 1.0 + pow(abs(uv.x) / 8.0, 2.0);
 	
 	uv /= 1.2;
 	
@@ -117,13 +117,42 @@ position = Vector2( 1504.83, 455.371 )
 position = Vector2( 927.428, -516.346 )
 
 [node name="Music" type="AudioStreamPlayer2D" parent="MusicResource"]
-position = Vector2( -583.428, 472.346 )
+position = Vector2( -1115.43, -271.654 )
+stream = ExtResource( 19 )
+volume_db = -10.0
+autoplay = true
+attenuation = 2.0
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="MusicResource"]
+position = Vector2( 44.572, -267.654 )
+stream = ExtResource( 19 )
+volume_db = -10.0
+autoplay = true
+attenuation = 2.0
+
+[node name="Music3" type="AudioStreamPlayer2D" parent="MusicResource"]
+position = Vector2( 56.572, 660.346 )
+stream = ExtResource( 19 )
+volume_db = -10.0
+autoplay = true
+attenuation = 2.0
+
+[node name="Music4" type="AudioStreamPlayer2D" parent="MusicResource"]
+position = Vector2( -1263.43, 268.346 )
+stream = ExtResource( 19 )
+volume_db = -10.0
+autoplay = true
+attenuation = 2.0
+
+[node name="Music5" type="AudioStreamPlayer2D" parent="MusicResource"]
+position = Vector2( -1227.43, 848.346 )
 stream = ExtResource( 19 )
 volume_db = -10.0
 autoplay = true
 attenuation = 2.0
 
 [node name="Room Collisions" type="StaticBody2D" parent="."]
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -161,18 +190,173 @@ rotation = 1.50996e-07
 
 [node name="Octopus" parent="YSort" instance=ExtResource( 17 )]
 
+[node name="Octopus11" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 1299.85, -13.3362 )
+scale = Vector2( -1, 1 )
+
+[node name="Octopus10" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( -80.1511, 270.664 )
+
+[node name="Octopus9" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 619.849, 390.664 )
+
+[node name="Octopus8" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 315.849, 794.664 )
+
+[node name="Octopus7" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 1103.85, 1002.66 )
+
+[node name="Octopus6" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 1207.85, 326.664 )
+
+[node name="Octopus2" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 291.849, -233.336 )
+
+[node name="Octopus3" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 275.849, -165.336 )
+
+[node name="Octopus4" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 367.849, -165.336 )
+scale = Vector2( -1, 1 )
+
+[node name="Octopus5" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 395.849, -225.336 )
+scale = Vector2( -1, 1 )
+
 [node name="Ghost" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 91.7942, 8.18883 )
-rotation = -3.14159
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Ghost8" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( -0.151031, -413.336 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Ghost7" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 715.849, 962.664 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Ghost6" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1211.85, 1002.66 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Ghost5" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1307.85, 334.664 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Ghost2" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1471.85, -241.336 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Ghost3" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1367.85, -245.336 )
+rotation = 3.14159
+scale = Vector2( -1, -1 )
+
+[node name="Ghost4" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 1419.85, -177.336 )
+rotation = 3.14159
 scale = Vector2( 1, -1 )
 
 [node name="Potato" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 93.2808, -116.339 )
-rotation = -3.14159
+rotation = 3.14159
 scale = Vector2( 1, -1 )
+
+[node name="Potato7" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 731.849, 386.664 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Potato6" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 615.849, 714.664 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Potato5" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 1211.85, 886.664 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Potato3" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 1275.85, 406.664 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Potato4" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 1171.85, 406.664 )
+rotation = 3.14159
+scale = Vector2( -1, -1 )
 
 [node name="Mushroom" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( -4.36456, -116.097 )
+rotation = -1.50996e-07
+
+[node name="Mushroom14" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 1107.85, 142.664 )
+rotation = -1.50996e-07
+
+[node name="Mushroom13" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 15.8489, 274.664 )
+rotation = -1.50996e-07
+scale = Vector2( -1, 1 )
+
+[node name="Mushroom12" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( -96.1512, -417.336 )
+rotation = -1.50996e-07
+
+[node name="Mushroom10" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 463.849, 70.6639 )
+rotation = -1.50996e-07
+
+[node name="Mushroom11" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 551.849, 66.6639 )
+rotation = -1.50996e-07
+scale = Vector2( -1, 1 )
+
+[node name="Mushroom9" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 507.849, 1122.66 )
+rotation = -1.50996e-07
+
+[node name="Mushroom5" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( -92.151, 958.664 )
+rotation = -1.50996e-07
+
+[node name="Mushroom6" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( -0.150963, 958.664 )
+rotation = -1.50996e-07
+
+[node name="Mushroom7" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 27.8491, 1050.66 )
+rotation = -1.50996e-07
+scale = Vector2( -1, 1 )
+
+[node name="Mushroom8" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 107.849, 1054.66 )
+rotation = -1.50996e-07
+scale = Vector2( -1, 1 )
+
+[node name="Mushroom4" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 1099.85, 890.664 )
+rotation = -1.50996e-07
+
+[node name="Mushroom3" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 1495.85, 390.664 )
+rotation = -1.50996e-07
+scale = Vector2( -1, 1 )
+
+[node name="Potato2" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 1117.49, -513.336 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="Mushroom2" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 1019.85, -513.094 )
 rotation = -1.50996e-07
 
 [node name="Player" parent="YSort" groups=[
