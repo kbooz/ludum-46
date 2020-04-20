@@ -5,7 +5,11 @@ extends Control
 # var a = 2
 # var b = "text"
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_click_left"):
-		print("click")
-		get_tree().change_scene("res://Test Scenes/LevelDesignTest.tscn")
+func _on_StartButton_pressed():
+	get_tree().change_scene("res://Test Scenes/LevelDesignTest.tscn")
+
+func _on_HowToPlayButton_pressed():
+	pass # Replace with function body.
+
+func _on_CreditsButton_pressed():
+	get_tree().change_scene("res://Test Scenes/Scenes/Credits.tscn")
