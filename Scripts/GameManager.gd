@@ -36,26 +36,34 @@ func check_props_issues():
 func request_refill(prop):
 	if prop.resource == GlobalResources.RESOURCES.MUSIC:
 		if player.resource == GlobalResources.RESOURCES.EMPTY:
-			prop.curr_resource = prop.resource_max
-			print("Music Adjusted")
-			$Refill.play(1)
-			return true
+			if prop.curr_resource < prop.issues_threshold:
+				prop.curr_resource = prop.resource_max
+				print("Music Adjusted")
+				$Refill.play(1)
+				return true
+			else:
+				$Fail.play()
+				return false
 		else:
 			print("Hands full")
 			$Fail.play()
 			return false
 			
 	if prop.resource == player.resource:
-		player.resource = GlobalResources.RESOURCES.EMPTY
-		prop.curr_resource = prop.resource_max
-		movements += 1
-		if (movements % 5 == 0):
-			level += 1
-			levelLabel.text = "Level " + str(level)
-		print(level)
-		print("Refilled")
-		$Refill.play(1)
-		return true
+		if prop.curr_resource < prop.issues_threshold:
+			player.resource = GlobalResources.RESOURCES.EMPTY
+			prop.curr_resource = prop.resource_max
+			movements += 1
+			if (movements % 5 == 0):
+				level += 1
+				levelLabel.text = "Level " + str(level)
+			print(level)
+			print("Refilled")
+			$Refill.play(1)
+			return true
+		else:
+			$Fail.play()
+			return false
 	else:
 		print("Doesnt have correct resource")
 		$Fail.play()
