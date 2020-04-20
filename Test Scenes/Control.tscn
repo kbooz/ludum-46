@@ -1,21 +1,89 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets-originals/party_o_meter/fill-texture_white.png" type="Texture" id=1]
 [ext_resource path="res://assets-originals/party_o_meter/marcadores2x-8.png" type="Texture" id=2]
 [ext_resource path="res://assets-originals/party_o_meter/festometro2x-8.png" type="Texture" id=3]
+[ext_resource path="res://assets-originals/png/beer-01.png" type="Texture" id=4]
+[ext_resource path="res://assets-originals/png/food-01.png" type="Texture" id=5]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.847059, 0.164706, 0.164706, 0 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.847059, 0.164706, 0.164706, 1 )
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="Theme" id=3]
 ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
-ProgressBar/styles/bg = SubResource( 2 )
-ProgressBar/styles/fg = SubResource( 3 )
+ProgressBar/styles/bg = SubResource( 1 )
+ProgressBar/styles/fg = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0980392, 0.101961, 0.152941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id=5]
+Panel/styles/panel = SubResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 11
+
+[sub_resource type="Theme" id=7]
+Panel/styles/panel = SubResource( 6 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "beer"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/TextureRect3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "empty"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/TextureRect3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "food"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel/TextureRect3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -46,7 +114,7 @@ margin_left = 72.0
 margin_top = 56.0
 margin_right = 106.0
 margin_bottom = 260.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 value = 100.0
 texture_progress = ExtResource( 1 )
 fill_mode = 3
@@ -62,3 +130,48 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Panel2" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -132.0
+margin_top = -124.0
+margin_right = -28.0
+margin_bottom = -20.0
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -120.0
+margin_right = -32.0
+margin_bottom = -24.0
+theme = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.042
+margin_left = 8.0
+margin_top = 12.0
+margin_right = -8.0
+margin_bottom = -12.032
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/beer = SubResource( 9 )
+anims/empty = SubResource( 8 )
+anims/food = SubResource( 10 )
