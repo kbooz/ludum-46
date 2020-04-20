@@ -44,7 +44,7 @@ func _process(delta):
 		end_time = OS.get_unix_time()
 		GlobalResources.time_mins = (end_time - start_time) / 60
 		GlobalResources.time_secs = (end_time - start_time) % 60
-		GlobalResources.max_attendance = max_attendance
+		GlobalResources.max_attendance = max_attendance + 30
 		GlobalResources.level_reached = level
 		
 		get_tree().change_scene("res://Test Scenes/Scenes/GameOver.tscn")

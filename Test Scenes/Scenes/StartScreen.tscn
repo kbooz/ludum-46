@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets-originals/fonts/OpenDyslexic-Bold.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Test Scenes/Scenes/StartScreen.gd" type="Script" id=2]
 [ext_resource path="res://new_theme.tres" type="Theme" id=3]
 [ext_resource path="res://Test Scenes/Scenes/MainGameColorRect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audio/8bit-Bossa.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -63,6 +64,10 @@ margin_bottom = 156.0
 theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 text = "Credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HowToPlayButton" to="." method="_on_HowToPlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]

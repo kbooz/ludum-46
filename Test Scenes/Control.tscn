@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets-originals/party_o_meter/fill-texture_white.png" type="Texture" id=1]
 [ext_resource path="res://assets-originals/party_o_meter/marcadores2x-8.png" type="Texture" id=2]
 [ext_resource path="res://assets-originals/party_o_meter/festometro2x-8.png" type="Texture" id=3]
 [ext_resource path="res://assets-originals/png/beer-01.png" type="Texture" id=4]
 [ext_resource path="res://assets-originals/png/food-01.png" type="Texture" id=5]
+[ext_resource path="res://new_theme.tres" type="Theme" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.847059, 0.164706, 0.164706, 0 )
@@ -40,7 +41,7 @@ corner_detail = 11
 [sub_resource type="Theme" id=7]
 Panel/styles/panel = SubResource( 6 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "beer"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Panel/TextureRect3:texture")
@@ -55,8 +56,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "empty"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Panel/TextureRect3:texture")
 tracks/0/interp = 1
@@ -92,16 +92,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Level" type="Label" parent="."]
-margin_left = 82.032
-margin_top = 67.3554
-margin_right = 179.032
-margin_bottom = 96.3554
-text = "Level 1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 24.0
 margin_top = 24.0
@@ -127,6 +117,22 @@ margin_top = 24.0
 margin_right = 154.0
 margin_bottom = 369.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="TextureRect2"]
+anchor_left = 0.492
+anchor_top = 0.997
+anchor_right = 0.492
+anchor_bottom = 0.997
+margin_left = -43.96
+margin_top = 12.035
+margin_right = 53.04
+margin_bottom = 41.035
+theme = ExtResource( 6 )
+text = "Level 1"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -172,6 +178,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/beer = SubResource( 9 )
-anims/empty = SubResource( 8 )
+anims/beer = SubResource( 8 )
+anims/empty = SubResource( 9 )
 anims/food = SubResource( 10 )

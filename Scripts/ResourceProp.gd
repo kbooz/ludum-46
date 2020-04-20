@@ -38,14 +38,16 @@ func _process(_delta):
 		$AlertBalloon.active = true
 		has_issues = true
 		if resource == GlobalResources.RESOURCES.MUSIC:
-			$Music.stop()
+			for music in get_tree().get_nodes_in_group("music"):
+				music.stop()
 	else:
 		label.set("custom_colors/font_color", Color(1, 1, 1))
 		$AlertBalloon.active = false
 		has_issues = false
 		if resource == GlobalResources.RESOURCES.MUSIC:
-			if !$Music.playing:
-				$Music.play()
+			for music in get_tree().get_nodes_in_group("music"):
+				if !music.playing:
+					music.play()
 		
 	if is_hovering:
 		label.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Test Scenes/Scenes/FoodHandout.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Test Scenes/Scenes/MusicResource.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Test Scenes/Control.tscn" type="PackedScene" id=11]
-[ext_resource path="res://OpenDyslexicBold.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Test Scenes/Scenes/GameOver.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
@@ -57,13 +56,6 @@ __meta__ = {
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 11 )]
 
-[node name="Level" parent="CanvasLayer/Control" index="0"]
-margin_left = 25.032
-margin_top = 555.355
-margin_right = 122.032
-margin_bottom = 590.355
-custom_fonts/font = ExtResource( 12 )
-
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource( 13 )]
 visible = false
 
@@ -102,35 +94,45 @@ position = Vector2( 927.428, -516.346 )
 curr_resource = 85
 resource_refill = 40
 
-[node name="Music" type="AudioStreamPlayer2D" parent="MusicResource"]
+[node name="Music" type="AudioStreamPlayer2D" parent="MusicResource" groups=[
+"music",
+]]
 position = Vector2( -1115.43, -271.654 )
 stream = ExtResource( 19 )
 volume_db = -10.0
 autoplay = true
 attenuation = 2.0
 
-[node name="Music2" type="AudioStreamPlayer2D" parent="MusicResource"]
+[node name="Music2" type="AudioStreamPlayer2D" parent="MusicResource" groups=[
+"music",
+]]
 position = Vector2( 44.572, -267.654 )
 stream = ExtResource( 19 )
 volume_db = -10.0
 autoplay = true
 attenuation = 2.0
 
-[node name="Music3" type="AudioStreamPlayer2D" parent="MusicResource"]
+[node name="Music3" type="AudioStreamPlayer2D" parent="MusicResource" groups=[
+"music",
+]]
 position = Vector2( 56.572, 660.346 )
 stream = ExtResource( 19 )
 volume_db = -10.0
 autoplay = true
 attenuation = 2.0
 
-[node name="Music4" type="AudioStreamPlayer2D" parent="MusicResource"]
+[node name="Music4" type="AudioStreamPlayer2D" parent="MusicResource" groups=[
+"music",
+]]
 position = Vector2( -1263.43, 268.346 )
 stream = ExtResource( 19 )
 volume_db = -10.0
 autoplay = true
 attenuation = 2.0
 
-[node name="Music5" type="AudioStreamPlayer2D" parent="MusicResource"]
+[node name="Music5" type="AudioStreamPlayer2D" parent="MusicResource" groups=[
+"music",
+]]
 position = Vector2( -1227.43, 848.346 )
 stream = ExtResource( 19 )
 volume_db = -10.0
