@@ -1,7 +1,7 @@
 extends Node
 
 onready var partyometer = $CanvasLayer/Control/TextureProgress
-onready var levelLabel = $CanvasLayer/Control/Level
+onready var levelLabel = $CanvasLayer/Control/TextureRect2/Level
 onready var messageLabel = $CanvasLayer/Message
 onready var hudAnimator = $CanvasLayer/AnimateHUD
 onready var partyometerTimer = $PartyometerTimer

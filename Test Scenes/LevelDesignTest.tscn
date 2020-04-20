@@ -25,11 +25,11 @@
 [ext_resource path="res://assets-originals/png/fog1x.png" type="Texture" id=24]
 [ext_resource path="res://Test Scenes/Guest.tscn" type="PackedScene" id=25]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 22
 font_data = ExtResource( 12 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "show_message"
 length = 0.75
 step = 0.05
@@ -70,7 +70,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 radius = 4.91624
 
 [node name="Game" type="Node" groups=[
@@ -113,7 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -19.5
 margin_bottom = 19.5
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "You grabbed food!"
 align = 1
 __meta__ = {
@@ -121,7 +121,7 @@ __meta__ = {
 }
 
 [node name="AnimateHUD" type="AnimationPlayer" parent="CanvasLayer"]
-anims/show_message = SubResource( 3 )
+anims/show_message = SubResource( 2 )
 
 [node name="Artboard_2000x2000" type="Sprite" parent="."]
 position = Vector2( 724, 108 )
@@ -138,7 +138,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorTracker"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="FoodResource" parent="." instance=ExtResource( 7 )]
 position = Vector2( -164.816, -393.081 )
