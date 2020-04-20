@@ -2,6 +2,8 @@ extends Node
 
 onready var partyometer = $CanvasLayer/Control/TextureProgress
 onready var levelLabel = $CanvasLayer/Control/Level
+onready var messageLabel = $CanvasLayer/Message
+onready var hudAnimator = $CanvasLayer/AnimateHUD
 onready var partyometerTimer = $PartyometerTimer
 
 var player
@@ -24,6 +26,7 @@ func _ready():
 	init()
 
 func init():
+	messageLabel.rect_pivot_offset = messageLabel.rect_size / 2
 	player = get_tree().get_nodes_in_group("player")[0]
 	props = get_tree().get_nodes_in_group("props")
 	start_time = OS.get_unix_time()
@@ -55,6 +58,10 @@ func check_props_issues():
 		for k in props:
 			total_issues += int(k.has_issues)
 	return total_issues
+
+func show_message(message):
+	messageLabel.text = str(message)
+	hudAnimator.play("show_message")
 
 func request_refill(prop):
 	if prop.resource == GlobalResources.RESOURCES.MUSIC:
@@ -99,10 +106,12 @@ func request_delivery(handout):
 	if player.resource != GlobalResources.RESOURCES.EMPTY:
 		print("Player has hands full")
 		return
-		
+	
 	if randf() < disaster_chance:
 		var disaster_prop = props[randi() % props.size()]
 		disaster_prop.curr_resource = disaster_prop.issues_threshold
+	
+	show_message("You grabbed %s" % animations[handout.resource])
 	player.resource = handout.resource
 	$CanvasLayer/Control/AnimationPlayer.play(animations[handout.resource])
 

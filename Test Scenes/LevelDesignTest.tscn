@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Test Scenes/Scenes/FoodHandout.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Test Scenes/Scenes/MusicResource.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Test Scenes/Control.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets-originals/fonts/OpenDyslexic-Bold.otf" type="DynamicFontData" id=12]
 [ext_resource path="res://Test Scenes/Scenes/GameOver.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
@@ -23,6 +24,51 @@
 [ext_resource path="res://audio/alert_fail.wav" type="AudioStream" id=23]
 [ext_resource path="res://assets-originals/png/fog1x.png" type="Texture" id=24]
 [ext_resource path="res://Test Scenes/Guest.tscn" type="PackedScene" id=25]
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "show_message"
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Message:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Message:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Message:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
@@ -51,6 +97,7 @@ margin_bottom = 11.0
 texture = ExtResource( 24 )
 expand = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -59,9 +106,29 @@ __meta__ = {
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource( 13 )]
 visible = false
 
+[node name="Message" type="Label" parent="CanvasLayer"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -19.5
+margin_bottom = 19.5
+custom_fonts/font = SubResource( 2 )
+text = "You grabbed food!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimateHUD" type="AnimationPlayer" parent="CanvasLayer"]
+anims/show_message = SubResource( 3 )
+
 [node name="Artboard_2000x2000" type="Sprite" parent="."]
 position = Vector2( 724, 108 )
 texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CursorTracker" type="Area2D" parent="."]
 script = ExtResource( 3 )
