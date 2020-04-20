@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Test Scenes/Scenes/BeerHandout.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Test Scenes/Scenes/FoodHandout.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Test Scenes/Scenes/MusicResource.tscn" type="PackedScene" id=10]
+[ext_resource path="res://OpenDyslexicBold.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
@@ -47,10 +48,11 @@ __meta__ = {
 }
 
 [node name="Level" type="Label" parent="CanvasLayer/Control"]
-margin_left = 82.032
-margin_top = 67.3554
-margin_right = 179.032
-margin_bottom = 96.3554
+margin_left = 17.032
+margin_top = 562.355
+margin_right = 114.032
+margin_bottom = 597.355
+custom_fonts/font = ExtResource( 11 )
 text = "Level 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,7 +82,7 @@ position = Vector2( 968.286, 465.281 )
 position = Vector2( 1525.91, -713.294 )
 
 [node name="BeerResource" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1503.29, 455.371 )
+position = Vector2( 1504.83, 455.371 )
 
 [node name="MusicResource" parent="." instance=ExtResource( 10 )]
 position = Vector2( 927.428, -516.346 )

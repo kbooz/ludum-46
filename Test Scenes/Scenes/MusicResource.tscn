@@ -23,7 +23,4 @@ disabled = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverArea" index="1"]
 polygon = PoolVector2Array( 10.8581, -18.9819, 23.2964, -32.0319, 23.5003, 14.8666, 11.062, 31.3831, -25.2334, 31.7909, -24.8256, -18.5741 )
 
-[node name="AlertBalloon" parent="." index="6"]
-visible = false
-
 [editable path="AlertBalloon"]
