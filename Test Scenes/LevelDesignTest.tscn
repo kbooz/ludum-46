@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://audio/dark-moon.ogg" type="AudioStream" id=19]
 [ext_resource path="res://assets-originals/png/environment/Artboard_2000x2000.png" type="Texture" id=20]
 [ext_resource path="res://shader/Fog.tscn" type="PackedScene" id=21]
+[ext_resource path="res://audio/alert2.wav" type="AudioStream" id=22]
+[ext_resource path="res://audio/alert_fail.wav" type="AudioStream" id=23]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
@@ -29,6 +31,12 @@ radius = 4.91624
 "Game Manager",
 ]]
 script = ExtResource( 1 )
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+
+[node name="Refill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -130,9 +138,6 @@ rotation = -1.50996e-07
 ] instance=ExtResource( 4 )]
 position = Vector2( 443.849, 486.663 )
 rotation = -1.50996e-07
-MAX_SPEED = 200
-ACCELERATION = 500
-FRICTION = 800
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
