@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://audio/alert2.wav" type="AudioStream" id=22]
 [ext_resource path="res://audio/alert_fail.wav" type="AudioStream" id=23]
 [ext_resource path="res://assets-originals/png/fog1x.png" type="Texture" id=24]
+[ext_resource path="res://Test Scenes/Guest.tscn" type="PackedScene" id=25]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.91624
@@ -382,6 +383,126 @@ rotation = -1.50996e-07
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
+
+[node name="Sprite" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( -40.7513, -284.156 )
+
+[node name="Sprite2" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 113.142, -198.443 )
+
+[node name="Sprite3" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 270.931, -299.74 )
+
+[node name="Sprite4" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 572.874, -317.272 )
+
+[node name="Sprite5" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 366.384, 13.8908 )
+
+[node name="Sprite6" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 220.283, 333.365 )
+
+[node name="Sprite7" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1124.16, -237.404 )
+
+[node name="Sprite8" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 173.531, 613.88 )
+
+[node name="Sprite9" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 230.023, 923.615 )
+
+[node name="Sprite10" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 839.752, 1001.54 )
+
+[node name="Sprite11" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 510.591, 906.692 )
+
+[node name="Sprite12" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 334.852, 1023.85 )
+
+[node name="Sprite13" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 717.014, 1110.33 )
+
+[node name="Sprite14" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 25.2164, 795.112 )
+
+[node name="Sprite15" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( -153.312, 680.742 )
+
+[node name="Sprite16" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 736.541, 683.532 )
+
+[node name="Sprite17" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1408.81, 853.691 )
+
+[node name="Sprite18" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1369.76, 1079.64 )
+
+[node name="Sprite19" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1353.02, 133.999 )
+
+[node name="Sprite20" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1079.65, -2.68716 )
+
+[node name="Sprite21" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1283.28, -181.216 )
+
+[node name="Sprite22" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1266.55, -384.85 )
+
+[node name="Sprite23" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 728.172, -161.689 )
+
+[node name="Sprite24" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 558.012, -117.057 )
+
+[node name="Sprite25" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 703.067, 41.945 )
+
+[node name="Sprite26" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 638.908, 231.631 )
+
+[node name="Sprite27" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 463.169, 326.475 )
+
+[node name="Sprite28" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 100.533, 351.58 )
+
+[node name="Sprite29" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( -61.2583, 75.4193 )
+
+[node name="Sprite30" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( -86.3638, -122.636 )
+
+[node name="Sprite31" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 184.218, -19.424 )
+
+[node name="Sprite32" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 184.218, 108.893 )
+
+[node name="Sprite33" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 393.431, 217.684 )
+
+[node name="Sprite34" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 449.222, 638.9 )
+
+[node name="Sprite35" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 301.378, 496.635 )
+
+[node name="Sprite36" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 187.008, 739.322 )
+
+[node name="Sprite37" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 14.0587, 616.584 )
+
+[node name="Sprite38" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 379.484, -446.219 )
+
+[node name="Sprite39" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 106.112, -356.954 )
+
+[node name="Sprite40" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 1035.02, -345.796 )
 
 [node name="PartyometerTimer" type="Timer" parent="."]
 autostart = true

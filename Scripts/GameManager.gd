@@ -12,6 +12,7 @@ var movements = 0
 var initial_partyometer_depletion_rate = 1
 var partyometer_depletion_rate = initial_partyometer_depletion_rate
 var partyometer_increase_rate = 1
+var guests_displayed = 0
 
 func _ready():
 	VisualServer.set_default_clear_color(Color("#232323"))
@@ -103,3 +104,14 @@ func _on_PartyometerTimer_timeout():
 		partyometer.value -= partyometer_depletion_rate
 	else:
 		partyometer.value += partyometer_increase_rate
+		
+	guests_displayed = (partyometer.value / 100) * 4 * level
+	
+	var guests = get_tree().get_nodes_in_group("generic_guests")
+	for i in range(guests.size() - 1):
+		if i < guests_displayed:
+			if guests[i].modulate == Color(1,1,1,0):
+				guests[i].animation_player.play("fade_in")
+		else:
+			guests[i].modulate = Color(1,1,1,0)
+		
