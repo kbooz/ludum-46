@@ -19,12 +19,13 @@ var max_attendance = 0
 
 func _ready():
 	VisualServer.set_default_clear_color(Color("#232323"))
+	randomize()
 	init()
+
+func init():
 	player = get_tree().get_nodes_in_group("player")[0]
 	props = get_tree().get_nodes_in_group("props")
 	start_time = OS.get_unix_time()
-
-func init():
 	level = 1
 	movements = 0
 	partyometer_depletion_rate = 1
@@ -37,8 +38,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		increase_level()
 		
-	# var disaster_chance = clamp(level-2, 0, 9) / 10.0
-	# print (disaster_chance)
+	var disaster_chance = clamp(level-2, 0, 6) / 10.0
+	
+	
 	
 	if partyometer.value <= 0:
 		end_time = OS.get_unix_time()

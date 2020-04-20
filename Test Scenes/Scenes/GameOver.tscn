@@ -86,7 +86,7 @@ margin_top = 71.8
 margin_right = 48.0
 margin_bottom = 99.8
 theme = ExtResource( 2 )
-text = "try again"
+text = "Try again"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,7 +100,10 @@ margin_top = 512.0
 margin_right = 53.0
 margin_bottom = -60.0
 theme = ExtResource( 2 )
-text = "back to title"
+text = "Back to title"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button2" type="Button" parent="."]
 anchor_left = 0.501
@@ -111,9 +114,10 @@ margin_top = 468.0
 margin_right = 57.976
 margin_bottom = -99.8
 theme = ExtResource( 2 )
-text = "watch credits"
+text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

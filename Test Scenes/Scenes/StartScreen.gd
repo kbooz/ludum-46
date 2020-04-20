@@ -5,6 +5,9 @@ extends Control
 # var a = 2
 # var b = "text"
 
+func _ready():
+	GlobalResources.previous_scene = self.filename
+
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://Test Scenes/LevelDesignTest.tscn")
 

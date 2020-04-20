@@ -24,7 +24,6 @@ var animations = ["empty", "beer", "food", "music", "cleaning"]
 
 func _ready():
 	mat = sprite.get_material()
-	print(mat)
 	initial_label_position = label.rect_position.y
 	label.visible = false
 	game_manager = get_tree().get_nodes_in_group("Game Manager")[0]
@@ -67,18 +66,15 @@ func _on_Area2D_body_entered(body):
 		interactive = true
 	pass # Replace with function body.
 
-
 func _on_Area2D_body_exited(body):
 	if body.name == "Player":
 		interactive = false
 	pass # Replace with function body.
 
-
 func _on_Timer_timeout():
 	if curr_resource >= 1:
 		curr_resource -= 1
 	pass # Replace with function body.
-
 
 func _on_HoverArea_area_entered(area):
 	if area.name == "CursorTracker":
