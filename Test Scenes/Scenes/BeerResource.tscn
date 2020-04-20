@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Test Scenes/ResourceProps/ResourceProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets-originals/png/fridge_prop.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 36.4729, 74.1468 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float outLineSize  = 0.02;
+uniform vec4  outLineColor = vec4(1.0, 1.0, 1.0, 1.0);
+
+void fragment()
+{
+    vec4 tcol = texture(TEXTURE, UV);
+    
+    if (tcol.a == 0.0)
+    {
+        if (texture(TEXTURE, UV + vec2(0.0,          outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(0.0,         -outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  0.0)).a          != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, 0.0)).a          != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, -outLineSize)).a != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  -outLineSize)).a != 0.0) 
+            tcol = outLineColor;
+    }
+    
+    COLOR = tcol;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/outLineSize = 0.0
+shader_param/outLineColor = Plane( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 37.4435, 74.4703 )
+
+[node name="BeerResource" instance=ExtResource( 1 )]
+resource = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
+material = SubResource( 5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="HoverArea" index="0"]
+position = Vector2( 0, -1.29413 )
+shape = SubResource( 1 )
+
+[node name="Label" parent="Control" index="0"]
+margin_top = -111.245
+margin_bottom = -97.2447

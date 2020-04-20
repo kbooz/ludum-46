@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Test Scenes/ResourceProps/ResourceProp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets-originals/png/food-prop.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float outLineSize  = 0.02;
+uniform vec4  outLineColor = vec4(1.0, 1.0, 1.0, 1.0);
+
+void fragment()
+{
+    vec4 tcol = texture(TEXTURE, UV);
+    
+    if (tcol.a == 0.0)
+    {
+        if (texture(TEXTURE, UV + vec2(0.0,          outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(0.0,         -outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  0.0)).a          != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, 0.0)).a          != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, -outLineSize)).a != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  -outLineSize)).a != 0.0) 
+            tcol = outLineColor;
+    }
+    
+    COLOR = tcol;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/outLineSize = 0.0
+shader_param/outLineColor = Plane( 1, 1, 1, 1 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 28.2182
+
+[node name="FoodResource" instance=ExtResource( 1 )]
+resource = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+disabled = true
+
+[node name="Sprite" parent="." index="2"]
+material = SubResource( 5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="HoverArea" index="0"]
+visible = false
+position = Vector2( -1.02667, 1.54002 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HoverArea" index="1"]
+polygon = PoolVector2Array( 12.1977, -12.5694, 17.6088, -11.5726, 22.1654, -9.29429, 22.8774, -3.31368, 21.0262, 4.51807, 16.3272, 10.2139, 11.201, 14.201, 2.79963, 16.1945, -3.60817, 16.4793, -12.1519, 14.201, -18.2749, 9.07473, -21.2652, 4.09088, -23.1163, -1.32014, -24.1131, -7.01596, -23.9707, -8.01273, -20.838, -11.1454, -11.5823, -12.7118, 1.09088, -13.7085, 8.92263, -13.139 )
+
+[node name="InteractionArea" parent="." index="4"]
+visible = false
+
+[node name="Label" parent="Control" index="0"]
+margin_left = -30.8703
+margin_top = -56.7701
+margin_right = 33.1297
+margin_bottom = -42.7701
