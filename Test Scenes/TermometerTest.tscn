@@ -11,7 +11,6 @@
 [ext_resource path="res://Test Scenes/Scenes/FoodHandout.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Test Scenes/Scenes/MusicResource.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Test Scenes/Control.tscn" type="PackedScene" id=11]
-[ext_resource path="res://OpenDyslexicBold.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
@@ -57,7 +56,7 @@ position = Vector2( 968.286, 465.281 )
 position = Vector2( 1525.91, -713.294 )
 
 [node name="BeerResource" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1504.83, 455.371 )
+position = Vector2( 1503.29, 455.371 )
 
 [node name="MusicResource" parent="." instance=ExtResource( 10 )]
 position = Vector2( 927.428, -516.346 )

@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var partyometer = $CanvasLayer/Control/ProgressBar
+onready var partyometer = $CanvasLayer/Control/TextureProgress
 onready var levelLabel = $CanvasLayer/Control/Level
 onready var partyometerTimer = $PartyometerTimer
 
