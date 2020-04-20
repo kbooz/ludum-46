@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -32,6 +32,13 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 11 )]
+
+[node name="Level" parent="CanvasLayer/Control" index="0"]
+margin_left = 25.032
+margin_top = 555.355
+margin_right = 122.032
+margin_bottom = 590.355
+custom_fonts/font = ExtResource( 12 )
 
 [node name="Artboard_2000x2000" type="Sprite" parent="."]
 position = Vector2( 724, 108 )
@@ -150,3 +157,5 @@ __meta__ = {
 stream = ExtResource( 18 )
 volume_db = -10.0
 [connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]
+
+[editable path="CanvasLayer/Control"]
