@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Test Scenes/Resource Handouts/ResourceHandout.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets-originals/png/environment/food_box_v22x.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 26.9766, 42.7758 )
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float outLineSize  = 0.02;
+uniform vec4  outLineColor = vec4(1.0, 1.0, 1.0, 1.0);
+
+void fragment()
+{
+    vec4 tcol = texture(TEXTURE, UV);
+    
+    if (tcol.a == 0.0)
+    {
+        if (texture(TEXTURE, UV + vec2(0.0,          outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(0.0,         -outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  0.0)).a          != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, 0.0)).a          != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(-outLineSize, -outLineSize)).a != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  outLineSize)).a  != 0.0 ||
+            texture(TEXTURE, UV + vec2(outLineSize,  -outLineSize)).a != 0.0) 
+            tcol = outLineColor;
+    }
+    
+    COLOR = tcol;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/outLineSize = 0.0
+shader_param/outLineColor = Plane( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.7131, 41.9852 )
+
+[node name="FoodHandout" instance=ExtResource( 1 )]
+resource = 2
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -30.2074, -42.2487, -30.2074, -72.2901, 22.7602, -72.2901, 23.5508, -16.9507, 54.1192, -16.6872, 54.6462, 67.6393, -55.2418, 68.9569, -54.4513, -16.1602, -30.4709, -16.4237 )
+
+[node name="Sprite" parent="." index="2"]
+material = SubResource( 4 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="InteractionArea" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InteractionArea" index="1"]
+polygon = PoolVector2Array( -30.2074, -42.2487, -30.2074, -72.2901, 22.7602, -72.2901, 23.5508, -16.9507, 54.1192, -16.6872, 54.6462, 67.6393, -55.2418, 68.9569, -54.4513, -16.1602, -30.4709, -16.4237 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="HoverArea" index="0"]
+polygon = PoolVector2Array( -30.2074, -42.2487, -30.2074, -72.2901, 22.7602, -72.2901, 23.5508, -16.9507, 54.1192, -16.6872, 54.6462, 67.6393, -55.2418, 68.9569, -54.4513, -16.1602, -30.4709, -16.4237 )
+
+[node name="CollisionShape2D" parent="HoverArea" index="1"]
+visible = false
+shape = SubResource( 2 )

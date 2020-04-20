@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets-originals/lighttexture.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scripts/Light2D.gd" type="Script" id=5]
 [ext_resource path="res://Test Scenes/Scenes/BeerResource.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Test Scenes/Scenes/FoodResource.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Test Scenes/Scenes/BeerHandout.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Test Scenes/Scenes/FoodHandout.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Test Scenes/Scenes/MusicResource.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Test Scenes/Mushroom.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Test Scenes/Potato.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Test Scenes/Ghost.tscn" type="PackedScene" id=16]
@@ -70,8 +73,17 @@ shape = SubResource( 1 )
 [node name="FoodResource" parent="." instance=ExtResource( 7 )]
 position = Vector2( -164.816, -393.081 )
 
+[node name="FoodHandout" parent="." instance=ExtResource( 9 )]
+position = Vector2( 968.286, 465.281 )
+
+[node name="BeerHandout" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1525.91, -713.294 )
+
 [node name="BeerResource" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1503.29, 455.371 )
+
+[node name="MusicResource" parent="." instance=ExtResource( 10 )]
+position = Vector2( 927.428, -516.346 )
 
 [node name="Room Collisions" type="StaticBody2D" parent="."]
 __meta__ = {
@@ -146,7 +158,6 @@ scale = Vector2( 18.34, 17.969 )
 position = Vector2( 344, -44 )
 stream = ExtResource( 19 )
 volume_db = -20.194
-autoplay = true
 attenuation = 2.0
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -161,5 +172,4 @@ __meta__ = {
 [node name="Chatter" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 volume_db = -10.0
-autoplay = true
 [connection signal="timeout" from="PartyometerTimer" to="." method="_on_PartyometerTimer_timeout"]

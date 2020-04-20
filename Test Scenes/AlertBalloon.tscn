@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ), ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "cleaning"
 loop = true
 tracks/0/type = "value"
@@ -44,8 +44,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 11 ), ExtResource( 10 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "food"
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Icon:texture")
@@ -60,8 +59,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 7 ), ExtResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "music"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite/Icon:texture")
@@ -83,7 +81,7 @@ script = ExtResource( 2 )
 stream = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.0795737, 0.0795737 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( -1013.31, -481.979 )
@@ -91,10 +89,10 @@ offset = Vector2( -1013.31, -481.979 )
 [node name="Icon" type="Sprite" parent="Sprite"]
 position = Vector2( -586.191, 0 )
 scale = Vector2( 1.3741, 1.3741 )
-texture = ExtResource( 10 )
+texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/beer = SubResource( 1 )
-anims/cleaning = SubResource( 4 )
-anims/food = SubResource( 2 )
-anims/music = SubResource( 3 )
+anims/cleaning = SubResource( 2 )
+anims/food = SubResource( 3 )
+anims/music = SubResource( 4 )
