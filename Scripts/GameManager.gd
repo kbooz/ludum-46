@@ -34,7 +34,6 @@ func _process(delta):
 		
 	# var disaster_chance = clamp(level-2, 0, 9) / 10.0
 	# print (disaster_chance)
-	print(partyometer_depletion_rate)
 	
 	if partyometer.value <= 0:
 		get_tree().change_scene("res://Test Scenes/Scenes/GameOver.tscn")
