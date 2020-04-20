@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 onready var partyometer = $CanvasLayer/Control/TextureProgress
 onready var levelLabel = $CanvasLayer/Control/Level
@@ -11,6 +11,7 @@ var level = 0
 var movements = 0
 
 func _ready():
+	VisualServer.set_default_clear_color(Color("#232323"))
 	player = get_tree().get_nodes_in_group("player")[0]
 	props = get_tree().get_nodes_in_group("props")
 
@@ -21,6 +22,9 @@ func init():
 func _process(delta):
 	var props_total_issues = check_props_issues()
 	issues = props_total_issues
+	
+	if partyometer.value < 0:
+		player.queue_free()
 
 func check_props_issues():
 	var total_issues = 0
