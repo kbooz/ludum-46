@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD46"
+run/main_scene="res://Test Scenes/Scenes/StartScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
