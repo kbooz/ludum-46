@@ -42,6 +42,7 @@ func request_refill(prop):
 				prop.curr_resource = prop.resource_max
 				print("Music Adjusted")
 				$Refill.play(1)
+				$CanvasLayer/Control/AnimationPlayer.play("empty")
 				return true
 			else:
 				$Fail.play()
@@ -62,6 +63,7 @@ func request_refill(prop):
 			print(level)
 			print("Refilled")
 			$Refill.play(1)
+			$CanvasLayer/Control/AnimationPlayer.play("empty")
 			return true
 		else:
 			$Fail.play()
@@ -73,11 +75,13 @@ func request_refill(prop):
 	pass
 	
 func request_delivery(handout):
+	var animations = ["empty", "beer", "food","music","cleaning"]
 	if player.resource != GlobalResources.RESOURCES.EMPTY:
 		print("Player has hands full")
 		return
 		
 	player.resource = handout.resource
+	$CanvasLayer/Control/AnimationPlayer.play(animations[handout.resource])
 
 func _on_PartyometerTimer_timeout():
 	if issues > 0:
