@@ -42,6 +42,7 @@ func request_refill(prop):
 			return true
 		else:
 			print("Hands full")
+			$Fail.play()
 			return false
 			
 	if prop.resource == player.resource:
@@ -57,6 +58,7 @@ func request_refill(prop):
 		return true
 	else:
 		print("Doesnt have correct resource")
+		$Fail.play()
 		return false
 	pass
 	
