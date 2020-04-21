@@ -39,10 +39,6 @@ func _process(delta):
 	var props_total_issues = check_props_issues()
 	issues = props_total_issues
 	
-	# for debugging purposes
-	if Input.is_action_just_pressed("ui_accept"):
-		increase_level()
-		
 	if partyometer.value <= 0:
 		end_time = OS.get_unix_time()
 		GlobalResources.time_mins = (end_time - start_time) / 60
