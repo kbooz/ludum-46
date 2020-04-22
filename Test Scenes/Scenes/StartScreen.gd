@@ -16,3 +16,7 @@ func _on_HowToPlayButton_pressed():
 
 func _on_CreditsButton_pressed():
 	get_tree().change_scene("res://Test Scenes/Scenes/Credits.tscn")
+
+
+func _on_LeaderboardButton_pressed():
+	pass # Replace with function body.

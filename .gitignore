@@ -66,5 +66,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Leaderboard API Key
+leaderboard_api.txt
+
 # End of https://www.gitignore.io/api/godot,macos,windows
 
